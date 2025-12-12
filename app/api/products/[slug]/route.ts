@@ -37,7 +37,7 @@ export async function DELETE(
   try {
     await connectDB();
 
-    const product = await Product.findOneAndDelete({ slug: params.slug });
+    const product = await Product.findOneAndDelete({ slug: params.slug }as any);
 
     if (!product) {
       return NextResponse.json(
