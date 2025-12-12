@@ -1,0 +1,13 @@
+.next
+node_modules
+.turbo
+.DS_Store
+dist
+*.log
+.env.local
+.env*.local
+
+# Uploaded product images
+public/uploads/*
+!public/uploads/.gitkeep
+

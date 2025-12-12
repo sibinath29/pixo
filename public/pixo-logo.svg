@@ -1,0 +1,37 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1cf1ff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#08f7fe;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#00eaff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15f1ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="texture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+    </filter>
+  </defs>
+  
+  <!-- Deep glow shadow -->
+  <text x="100" y="50" font-family="'Arial Black', Arial, sans-serif" font-size="52" font-weight="900" text-anchor="middle" fill="#08f7fe" opacity="0.25" filter="url(#glow)" transform="translate(2, 3)">PIXO</text>
+  
+  <!-- Outline/shadow layer beneath -->
+  <text x="100" y="50" font-family="'Arial Black', Arial, sans-serif" font-size="48" font-weight="900" text-anchor="middle" fill="none" stroke="#08f7fe" stroke-width="1" opacity="0.5" letter-spacing="3" transform="translate(1, 2)">PIXO</text>
+  
+  <!-- Main text with gradient and glow -->
+  <text x="100" y="50" font-family="'Arial Black', Arial, sans-serif" font-size="48" font-weight="900" text-anchor="middle" fill="url(#cyanGradient)" filter="url(#neonGlow)" letter-spacing="3">PIXO</text>
+</svg>

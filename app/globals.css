@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-midnight text-white min-h-screen antialiased font-body;
+  background: radial-gradient(circle at 20% 20%, rgba(8, 247, 254, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(0, 234, 255, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(8, 247, 254, 0.12), transparent 32%),
+    #000000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cta-btn {
+  @apply rounded-full px-5 py-3 border-2 border-cyan-neon text-white transition-colors duration-300 font-semibold tracking-tight;
+}
+
+.cta-btn:hover {
+  @apply bg-cyan-neon text-black shadow-neon;
+}
+
+.card-hover {
+  @apply transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-glow hover:shadow-cyan-neon/40;
+}
+
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #08f7fe, #00eaff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease;
+}
+
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after,
+.nav-underline.active::after {
+  transform: scaleX(1);
+}
+
+.neon-caret {
+  caret-color: #08f7fe;
+}
+
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  z-index: 50;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  border: 2px solid #08f7fe;
+  box-shadow: 0 0 18px rgba(8, 247, 254, 0.65);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  z-index: 40;
+  width: 70px;
+  height: 70px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(8, 247, 254, 0.45) 0%, rgba(0, 0, 0, 0) 60%);
+  filter: blur(18px);
+  transform: translate(-50%, -50%);
+}
+
+.logo-pixo {
+  position: relative;
+  display: inline-block;
+  color: #08f7fe;
+  text-shadow: 
+    0 0 10px rgba(8, 247, 254, 0.6),
+    0 0 20px rgba(8, 247, 254, 0.4),
+    0 0 30px rgba(8, 247, 254, 0.3),
+    0 2px 0 rgba(8, 247, 254, 0.5),
+    0 3px 0 rgba(8, 247, 254, 0.4),
+    0 4px 0 rgba(8, 247, 254, 0.3);
+  filter: drop-shadow(0 0 8px rgba(8, 247, 254, 0.7));
+  letter-spacing: 0.05em;
+}
+
+.logo-pixo::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #08f7fe;
+  opacity: 0.25;
+  filter: blur(2px);
+  transform: translate(1px, 2px);
+  z-index: -1;
+}
+
